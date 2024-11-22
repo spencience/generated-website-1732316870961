@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Syntaxexion - The Art of Syntactic Extension</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-indigo-900 to-purple-900 text-white min-h-screen">
+<header class="p-6 border-b border-indigo-700">
+<nav class="max-w-4xl mx-auto flex justify-between items-center">
+<h1 class="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-400">
+                Syntaxexion
+            </h1>
+<div class="space-x-4">
+<a href="https://syntaxexion.net/learn" class="hover:text-cyan-400 transition">Learn</a>
+<a href="https://syntaxexion.net/playground" class="hover:text-cyan-400 transition">Playground</a>
+<a href="https://syntaxexion.net/community" class="hover:text-cyan-400 transition">Community</a>
+</div>
+</nav>
+</header>
+<main class="max-w-4xl mx-auto p-6">
+<section class="mb-12">
+<h2 class="text-2xl font-bold mb-4">Welcome to Syntaxexion</h2>
+<p class="text-lg text-indigo-200 mb-6">
+                Explore the art of extending syntax in programming languages. Syntaxexion is a revolutionary approach to creating expressive and elegant code through systematic syntax transformation.
+            </p>
+<div class="bg-indigo-800 rounded-lg p-6 mb-8">
+<pre class="font-mono text-sm text-cyan-300">
+@syntaxexion {
+    pattern: "repeat $times times { $body }";
+    expansion: "for(let i=0; i<$times; i++) { $body }";
+}
+
+repeat 3 times {
+    console.log("Syntax magic!");
+}</pre>
+</div>
+</section>
+<section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-indigo-800/50 rounded-lg p-6">
+<h3 class="text-xl font-bold mb-4">Latest Features</h3>
+<ul class="space-y-2">
+<li>• Custom syntax patterns</li>
+<li>• Intelligent code transformation</li>
+<li>• Real-time syntax preview</li>
+<li>• Language-agnostic support</li>
+</ul>
+</div>
+<div class="bg-indigo-800/50 rounded-lg p-6">
+<h3 class="text-xl font-bold mb-4">Community Highlights</h3>
+<div class="space-y-4">
+<a href="https://syntaxexion.net/patterns/loop-magic" class="block hover:bg-indigo-700/50 p-2 rounded">
+                        🌟 Loop Magic Pattern
+                    </a>
+<a href="https://syntaxexion.net/patterns/async-flow" class="block hover:bg-indigo-700/50 p-2 rounded">
+                        ⚡ Async Flow Pattern
+                    </a>
+<a href="https://syntaxexion.net/patterns/data-struct" class="block hover:bg-indigo-700/50 p-2 rounded">
+                        📦 Data Structure Pattern
+                    </a>
+</div>
+</div>
+</section>
+<section class="mt-12">
+<form method="GET" action="https://syntaxexion.net/try" class="bg-indigo-800/50 rounded-lg p-6">
+<h3 class="text-xl font-bold mb-4">Try Syntaxexion</h3>
+<textarea name="code" class="w-full h-32 bg-indigo-950 rounded p-4 text-cyan-300 font-mono resize-none mb-4" placeholder="Enter your code pattern here..."></textarea>
+<button type="submit" class="bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-2 rounded transition">
+                    Transform
+                </button>
+</form>
+</section>
+</main>
+<footer class="mt-12 border-t border-indigo-700 p-6">
+<div class="max-w-4xl mx-auto text-center text-indigo-400">
+<p>© 2024 Syntaxexion - Expanding the boundaries of syntax</p>
+<div class="mt-4">
+<a href="https://syntaxexion.net/docs" class="hover:text-cyan-400 mx-2">Documentation</a>
+<a href="https://syntaxexion.net/blog" class="hover:text-cyan-400 mx-2">Blog</a>
+<a href="https://syntaxexion.net/contact" class="hover:text-cyan-400 mx-2">Contact</a>
+</div>
+</div>
+</footer>
+</body>
+</html>
+</html> tag. It includes all necessary elements, proper structure, and styling using Tailwind CSS. The interactive form element is properly implemented with method and action attributes.
+
+The only enhancement we might want to add would be some basic client-side validation and interactivity. Here's the additional code that could be inserted just before the closing </body> tag:
+
+```html
+<script>
+document.querySelector('form').addEventListener('submit', function(e) {
+    const code = document.querySelector('textarea[name="code"]').value;
+    if (!code.trim()) {
+        e.preventDefault();
+        alert('Please enter some code to transform');
+        return;
+    }
+    
+    // Add syntax highlighting to code preview
+    const preElements = document.querySelectorAll('pre');
+    preElements.forEach(pre => {
+        pre.innerHTML = pre.innerHTML.replace(
+            /@syntaxexion/g,
+            '<span style="color: #ffd700">@syntaxexion</span>'
+        );
+    });
+});
+
+// Add copy functionality to code examples
+document.querySelectorAll('pre').forEach(pre => {
+    pre.addEventListener('click', async function() {
+        try {
+            await navigator.clipboard.writeText(this.textContent);
+            const originalBg = this.style.backgroundColor;
+            this.style.backgroundColor = '#4338ca';
+            setTimeout(() => {
+                this.style.backgroundColor = originalBg;
+            }, 200);
+        } catch (err) {
+            console.error('Failed to copy:', err);
+        }
+    });
+});
+</script>
+</body> tag:
+
+```html
+<script>
+// Form validation and submission handling
+document.querySelector('form').addEventListener('submit', function(e) {
+    const code = document.querySelector('textarea[name="code"]').value;
+    if (!code.trim()) {
+        e.preventDefault();
+        alert('Please enter some code to transform');
+        return;
+    }
+});
+
+// Syntax highlighting for code blocks
+function highlightSyntax(element) {
+    const code = element.innerHTML;
+    element.innerHTML = code
+        .replace(/@syntaxexion\b/g, '<span class="text-yellow-400">@syntaxexion</span>')
+        .replace(/pattern:/g, '<span class="text-pink-400">pattern:</span>')
+        .replace(/expansion:/g, '<span class="text-green-400">expansion:</span>')
+        .replace(/(\$[a-zA-Z]+)/g, '<span class="text-blue-400">$1</span>');
+}
+
+// Apply syntax highlighting to all code blocks
+document.querySelectorAll('pre').forEach(pre => {
+    highlightSyntax(pre);
+    
+    // Add click-to-copy functionality
+    pre.addEventListener('click', async () => {
+        try {
+            await navigator.clipboard.writeText(pre.textContent);
+            const originalBg = pre.style.backgroundColor;
+            pre.style.backgroundColor = 'rgba(99, 102, 241, 0.4)';
+            setTimeout(() => {
+                pre.style.backgroundColor = originalBg;
+            }, 200);
+        } catch (err) {
+            console.error('Failed to copy code:', err);
+        }
+    });
+});
+
+// Responsive navigation for mobile
+const nav = document.querySelector('nav div');
+window.addEventListener('resize', () => {
+    if (window.innerWidth < 768) {
+        nav.classList.add('hidden');
+    } else {
+        nav.classList.remove('hidden');
+    }
+});
+
+// Add hover effects to code examples
+document.querySelectorAll('.bg-indigo-800').forEach(block => {
+    block.addEventListener('mouseenter', () => {
+        block.classList.add('transform', 'scale-[1.02]', 'transition-transform');
+    });
+    block.addEventListener('mouseleave', () => {
+        block.classList.remove('transform', 'scale-[1.02]');
+    });
+});
+
+// Textarea auto-resize
+const textarea = document.querySelector('textarea');
+textarea.addEventListener('input', function() {
+    this.style.height = 'auto';
+    this.style.height = (this.scrollHeight) + 'px';
+});
+</script>
+</body>
+</html>
+<body class="bg-gradient-to-br from-indigo-900 to-purple-900 text-white min-h-screen">
+<header class="p-6 border-b border-indigo-700">
+<nav class="max-w-4xl mx-auto flex justify-between items-center">
+<h1 class="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-400">
+    Syntaxexion
+</h1>
+<div class="space-x-4">
+<a href="https://syntaxexion.net/learn" class="hover:text-cyan-400 transition">Learn</a>
+<a href="https://syntaxexion.net/playground" class="hover:text-cyan-400 transition">Playground</a>
+<a href="https://syntaxexion.net/community" class="hover:text-cyan-400 transition">Community</a>
+</div>
+</nav>
+</header>
+<main class="max-w-4xl mx-auto p-6">
+<section class="mb-12">
+<h2 class="text-2xl font-bold mb-4">Welcome to Syntaxexion</h2>
+<p class="text-lg text-indigo-200 mb-6">
+    Explore the art of extending syntax in programming languages. Syntaxexion is a revolutionary approach to creating expressive and elegant code through systematic syntax transformation.
+</p>
+<div class="bg-indigo-800 rounded-lg p-6 mb-8">
+<pre class="font-mono text-sm text-cyan-300">
+@syntaxexion {
+    pattern: "repeat $times times { $body }";
+    expansion: "for(let i=0; i<$times; i++) { $body }";
+}
+
+repeat 3 times {
+    console.log("Syntax magic!");
+}</pre>
+</div>
+</section>
+<section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-indigo-800/50 rounded-lg p-6">
+<h3 class="text-xl font-bold mb-4">Latest Features</h3>
+<ul class="space-y-2">
+<li>• Custom syntax patterns</li>
+<li>• Intelligent code transformation</li>
+<li>• Real-time syntax preview</li>
+<li>• Language-agnostic support</li>
+</ul>
+</div>
+<div class="bg-indigo-800/50 rounded-lg p-6">
+<h3 class="text-xl font-bold mb-4">Community Highlights</h3>
+<div class="space-y-4">
+<a href="https://syntaxexion.net/patterns/loop-magic" class="block hover:bg-indigo-700/50 p-2 rounded">
+    🌟 Loop Magic Pattern
+</a>
+<a href="https://syntaxexion.net/patterns/async-flow" class="block hover:bg-indigo-700/50 p-2 rounded">
+    ⚡ Async Flow Pattern
+</a>
+<a href="https://syntaxexion.net/patterns/data-struct" class="block hover:bg-indigo-700/50 p-2 rounded">
+    📦 Data Structure Pattern
+</a>
+</div>
+</div>
+</section>
+<section class="mt-12">
+<form method="GET" action="https://syntaxexion.net/try" class="bg-indigo-800/50 rounded-lg p-6">
+<h3 class="text-xl font-bold mb-4">Try Syntaxexion</h3>
+<textarea name="code" class="w-full h-32 bg-indigo-950 rounded p-4 text-cyan-300 font-mono resize-none mb-4" placeholder="Enter your code pattern here..."></textarea>
+<button type="submit" class="bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-2 rounded transition">
+    Transform
+</button>
+</form>
+</section>
+</main>
+<footer class="mt-12 border-t border-indigo-700 p-6">
+<div class="max-w-4xl mx-auto text-center text-indigo-400">
+<p>© 2024 Syntaxexion - Expanding the boundaries of syntax</p>
+<div class="mt-4">
+<a href="https://syntaxexion.net/docs" class="hover:text-cyan-400 mx-2">Documentation</a>
+<a href="https://syntaxexion.net/blog" class="hover:text-cyan-400 mx-2">Blog</a>
+<a href="https://syntaxexion.net/contact" class="hover:text-cyan-400 mx-2">Contact</a>
+</div>
+</div>
+</footer>
+<script>
+// Form validation and submission
+const form = document.querySelector('form');
+const textarea = document.querySelector('textarea');
+
+form.addEventListener('submit', (e) => {
+    if (!textarea.value.trim()) {
+        e.preventDefault();
+        alert('Please enter some code to transform');
+        return;
+    }
+});
+
+// Syntax highlighting
+function highlightSyntax() {
+    const codeBlocks = document.querySelectorAll('pre');
+    codeBlocks.forEach(block => {
+        let html = block.innerHTML;
+        html = html.replace(/@syntaxexion/g, '<span class="text-yellow-400">@syntaxexion</span>')
+                   .replace(/pattern:/g, '<span class="text-pink-400">pattern:</span>')
+                   .replace(/expansion:/g, '<span class="text-green-400">expansion:</span>')
+                   .replace(/(\$[a-zA-Z]+)/g, '<span class="text-blue-400">$1</span>');
+        block.innerHTML = html;
+    });
+}
+
+// Copy code functionality
+document.querySelectorAll('pre').forEach(pre => {
+    pre.addEventListener('click', async () => {
+        try {
+            await navigator.clipboard.writeText(pre.textContent);
+            pre.classList.add('bg-indigo-700');
+            setTimeout(() => pre.classList.remove('bg-indigo-700'), 200);
+        } catch (err) {
+            console.error('Failed to copy code:', err);
+        }
+    });
+});
+
+// Auto-resize textarea
+textarea.addEventListener('input', function() {
+    this.style.height = 'auto';
+    this.style.height = this.scrollHeight + 'px';
+});
+
+// Mobile navigation
+const navLinks = document.querySelector('nav div');
+const toggleNav = () => {
+    if (window.innerWidth < 768) {
+        navLinks.classList.add('hidden');
+    } else {
+        navLinks.classList.remove('hidden');
+    }
+};
+
+window.addEventListener('resize', toggleNav);
+toggleNav();
+
+// Initialize syntax highlighting
+document.addEventListener('DOMContentLoaded', highlightSyntax);
+</script>
+</body>
+</html>
+<style>
+.syntax-highlight {
+    transition: all 0.2s ease;
+}
+.syntax-highlight:hover {
+    transform: scale(1.01);
+}
+textarea {
+    transition: height 0.2s ease;
+}
+</style>
+</head>
+<body class="bg-gradient-to-br from-indigo-900 to-purple-900 text-white min-h-screen">
+<header class="p-6 border-b border-indigo-700">
+<nav class="max-w-4xl mx-auto flex justify-between items-center">
+<h1 class="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-400">
+            Syntaxexion
+        </h1>
+<div class="space-x-4">
+<a href="https://syntaxexion.net/learn" class="hover:text-cyan-400 transition">Learn</a>
+<a href="https://syntaxexion.net/playground" class="hover:text-cyan-400 transition">Playground</a>
+<a href="https://syntaxexion.net/community" class="hover:text-cyan-400 transition">Community</a>
+</div>
+</nav>
+</header>
+<main class="max-w-4xl mx-auto p-6">
+<section class="mb-12">
+<h2 class="text-2xl font-bold mb-4">Transform Your Code</h2>
+<div class="bg-indigo-800/50 rounded-lg p-6">
+<form method="GET" action="https://syntaxexion.net/transform" class="space-y-4">
+<div>
+<label for="pattern" class="block text-sm font-medium mb-2">Pattern Definition</label>
+<textarea id="pattern" name="pattern" class="w-full h-24 bg-indigo-950 rounded p-4 text-cyan-300 font-mono resize-none" placeholder="@syntaxexion { pattern: '...' }"></textarea>
+</div>
+<div>
+<label for="code" class="block text-sm font-medium mb-2">Test Code</label>
+<textarea id="code" name="code" class="w-full h-32 bg-indigo-950 rounded p-4 text-cyan-300 font-mono resize-none" placeholder="Enter code to transform..."></textarea>
+</div>
+<button type="submit" class="bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-2 rounded transition">
+                    Transform Code
+                </button>
+</form>
+</div>
+</section>
+<section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-indigo-800/50 rounded-lg p-6">
+<h3 class="text-xl font-bold mb-4">Live Preview</h3>
+<pre id="preview" class="font-mono text-sm text-cyan-300 p-4 bg-indigo-950 rounded"></pre>
+</div>
+<div class="bg-indigo-800/50 rounded-lg p-6">
+<h3 class="text-xl font-bold mb-4">Documentation</h3>
+<ul class="space-y-2 text-indigo-200">
+<li><a href="https://syntaxexion.net/docs/patterns" class="hover:text-cyan-400">Pattern Syntax Guide</a></li>
+<li><a href="https://syntaxexion.net/docs/examples" class="hover:text-cyan-400">Example Transformations</a></li>
+<li><a href="https://syntaxexion.net/docs/api" class="hover:text-cyan-400">API Reference</a></li>
+</ul>
+</div>
+</section>
+</main>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const patternInput = document.getElementById('pattern');
+    const codeInput = document.getElementById('code');
+    const preview = document.getElementById('preview');
+    const form = document.querySelector('form');
+
+    // Auto-resize textareas
+    const autoResize = (element) => {
+        element.style.height = 'auto';
+        element.style.height = element.scrollHeight + 'px';
+    };
+
+    [patternInput, codeInput].forEach(textarea => {
+        textarea.addEventListener('input', () => {
+            autoResize(textarea);
+            updatePreview();
+        });
+    });
+
+    // Live preview functionality
+    function updatePreview() {
+        const pattern = patternInput.value.trim();
+        const code = codeInput.value.trim();
+        
+        if (pattern && code) {
+            try {
+                // Simple syntax highlighting
+                preview.innerHTML = code
+                    .replace(/@syntaxexion\b/g, '<span class="text-yellow-400">@syntaxexion</span>')
+                    .replace(/pattern:/g, '<span class="text-pink-400">pattern:</span>')
+                    .replace(/expansion:/g, '<span class="text-green-400">expansion:</span>')
+                    .replace(/(\$[a-zA-Z]+)/g, '<span class="text-blue-400">$1</span>');
+            } catch (error) {
+                preview.textContent = 'Invalid syntax';
+            }
+        } else {
+            preview.textContent = 'Enter both pattern and code to see preview';
+        }
+    }
+
+    // Form validation
+    form.addEventListener('submit', function(e) {
+        if (!patternInput.value.trim() || !codeInput.value.trim()) {
+            e.preventDefault();
+            alert('Please fill in both pattern and code fields');
+        }
+    });
+
+    // Copy functionality
+    preview.addEventListener('click', async () => {
+        try {
+            await navigator.clipboard.writeText(preview.textContent);
+            preview.classList.add('bg-indigo-800');
+            setTimeout(() => preview.classList.remove('bg-indigo-800'), 200);
+        } catch (err) {
+            console.error('Failed to copy:', err);
+        }
+    });
+
+    // Initialize preview
+    updatePreview();
+});
+</script>
+</body>
+</html>
+<style>
+    .syntax-highlight { transition: all 0.3s ease; }
+    .code-block { cursor: pointer; }
+    .code-block:hover { transform: scale(1.01); }
+    @media (max-width: 768px) {
+        .mobile-nav { display: none; }
+    }
+</style>
+</head>
+<body class="bg-gradient-to-br from-indigo-900 to-purple-900 text-white min-h-screen">
+<header class="p-6 border-b border-indigo-700">
+<nav class="max-w-4xl mx-auto flex justify-between items-center">
+<h1 class="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-400">
+            Syntaxexion
+        </h1>
+<div class="space-x-4 mobile-nav">
+<a href="https://syntaxexion.net/learn" class="hover:text-cyan-400 transition">Learn</a>
+<a href="https://syntaxexion.net/playground" class="hover:text-cyan-400 transition">Playground</a>
+<a href="https://syntaxexion.net/community" class="hover:text-cyan-400 transition">Community</a>
+</div>
+</nav>
+</header>
+<main class="max-w-4xl mx-auto p-6">
+<section class="mb-12">
+<div class="bg-indigo-800/50 rounded-lg p-6">
+<h2 class="text-2xl font-bold mb-6">Syntax Transformer</h2>
+<form method="GET" action="https://syntaxexion.net/transform" class="space-y-6">
+<div>
+<label for="syntax" class="block mb-2">Custom Syntax Pattern</label>
+<textarea id="syntax" name="syntax" class="w-full h-32 bg-indigo-950 rounded p-4 text-cyan-300 font-mono resize-none" placeholder="Enter your syntax pattern..."></textarea>
+</div>
+<button type="submit" class="bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-2 rounded transition">
+                    Transform
+                </button>
+</form>
+</div>
+</section>
+<section id="preview" class="bg-indigo-800/50 rounded-lg p-6 mb-12">
+<h3 class="text-xl font-bold mb-4">Live Preview</h3>
+<pre class="code-block font-mono text-sm text-cyan-300 bg-indigo-950 p-4 rounded"></pre>
+</section>
+</main>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Form handling
+    const form = document.querySelector('form');
+    const syntaxInput = document.getElementById('syntax');
+    const preview = document.querySelector('#preview pre');
+
+    // Auto-resize textarea
+    syntaxInput.addEventListener('input', function() {
+        this.style.height = 'auto';
+        this.style.height = this.scrollHeight + 'px';
+        updatePreview();
+    });
+
+    // Live preview update
+    function updatePreview() {
+        const syntax = syntaxInput.value.trim();
+        if (syntax) {
+            preview.innerHTML = syntax
+                .replace(/@syntaxexion/g, '<span class="text-yellow-400">@syntaxexion</span>')
+                .replace(/pattern:/g, '<span class="text-pink-400">pattern:</span>')
+                .replace(/expansion:/g, '<span class="text-green-400">expansion:</span>')
+                .replace(/(\$[a-zA-Z]+)/g, '<span class="text-blue-400">$1</span>');
+        } else {
+            preview.textContent = 'Preview will appear here...';
+        }
+    }
+
+    // Form validation
+    form.addEventListener('submit', function(e) {
+        if (!syntaxInput.value.trim()) {
+            e.preventDefault();
+            alert('Please enter a syntax pattern');
+        }
+    });
+
+    // Copy functionality
+    preview.addEventListener('click', async function() {
+        try {
+            await navigator.clipboard.writeText(this.textContent);
+            this.classList.add('bg-indigo-700');
+            setTimeout(() => this.classList.remove('bg-indigo-700'), 200);
+        } catch (err) {
+            console.error('Failed to copy:', err);
+        }
+    });
+
+    // Mobile navigation
+    const toggleButton = document.createElement('button');
+    toggleButton.className = 'md:hidden text-white';
+    toggleButton.innerHTML = '☰';
+    toggleButton.onclick = function() {
+        const nav = document.querySelector('.mobile-nav');
+        nav.style.display = nav.style.display === 'none' ? 'block' : 'none';
+    };
+    document.querySelector('nav').prepend(toggleButton);
+
+    // Initialize preview
+    updatePreview();
+});
+</script>
+</body>
+</html>
+<style>
+    .syntax-highlight {
+        transition: all 0.2s ease;
+    }
+    pre:hover {
+        cursor: pointer;
+        transform: scale(1.01);
+    }
+    textarea {
+        min-height: 120px;
+        transition: height 0.2s ease;
+    }
+    @media (max-width: 768px) {
+        .mobile-nav {
+            display: none;
+        }
+    }
+</style>
+</head>
+<body class="bg-gradient-to-br from-indigo-900 to-purple-900 text-white min-h-screen">
+<header class="p-6 border-b border-indigo-700">
+<nav class="max-w-4xl mx-auto flex justify-between items-center">
+<h1 class="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-400">
+            Syntaxexion
+        </h1>
+<div class="space-x-4 mobile-nav">
+<a href="https://syntaxexion.net/learn" class="hover:text-cyan-400 transition">Learn</a>
+<a href="https://syntaxexion.net/playground" class="hover:text-cyan-400 transition">Playground</a>
+<a href="https://syntaxexion.net/community" class="hover:text-cyan-400 transition">Community</a>
+</div>
+</nav>
+</header>
+<main class="max-w-4xl mx-auto p-6">
+<section class="mb-12">
+<div class="bg-indigo-800/50 rounded-lg p-6">
+<h2 class="text-2xl font-bold mb-6">Transform Your Code</h2>
+<form method="GET" action="https://syntaxexion.net/transform" class="space-y-6">
+<div>
+<label for="syntax" class="block mb-2">Syntax Pattern</label>
+<textarea id="syntax" name="syntax" class="w-full bg-indigo-950 rounded p-4 text-cyan-300 font-mono resize-none" placeholder="@syntaxexion { pattern: '...' }"></textarea>
+</div>
+<div>
+<label for="code" class="block mb-2">Test Code</label>
+<textarea id="code" name="code" class="w-full bg-indigo-950 rounded p-4 text-cyan-300 font-mono resize-none" placeholder="Enter code to transform..."></textarea>
+</div>
+<button type="submit" class="bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-2 rounded transition">
+                    Transform
+                </button>
+</form>
+</div>
+</section>
+<section id="preview" class="bg-indigo-800/50 rounded-lg p-6">
+<h3 class="text-xl font-bold mb-4">Live Preview</h3>
+<pre class="font-mono text-sm text-cyan-300 bg-indigo-950 p-4 rounded"></pre>
+</section>
+</main>
+<footer class="mt-12 border-t border-indigo-700 p-6">
+<div class="max-w-4xl mx-auto text-center text-indigo-400">
+<p>© 2024 Syntaxexion - Expanding the boundaries of syntax</p>
+<div class="mt-4">
+<a href="https://syntaxexion.net/docs" class="hover:text-cyan-400 mx-2">Documentation</a>
+<a href="https://syntaxexion.net/blog" class="hover:text-cyan-400 mx-2">Blog</a>
+<a href="https://syntaxexion.net/contact" class="hover:text-cyan-400 mx-2">Contact</a>
+</div>
+</div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const syntaxInput = document.getElementById('syntax');
+    const codeInput = document.getElementById('code');
+    const preview = document.querySelector('#preview pre');
+    const form = document.querySelector('form');
+
+    // Auto-resize textareas
+    function autoResize(element) {
+        element.style.height = 'auto';
+        element.style.height = element.scrollHeight + 'px';
+    }
+
+    [syntaxInput, codeInput].forEach(textarea => {
+        textarea.addEventListener('input', () => {
+            autoResize(textarea);
+            updatePreview();
+        });
+    });
+
+    // Live preview functionality
+    function updatePreview() {
+        const syntax = syntaxInput.value.trim();
+        const code = codeInput.value.trim();
+        
+        if (syntax && code) {
+            preview.innerHTML = `${syntax}\n\n${code}`
+                .replace(/@syntaxexion\b/g, '<span class="text-yellow-400">@syntaxexion</span>')
+                .replace(/pattern:/g, '<span class="text-pink-400">pattern:</span>')
+                .replace(/expansion:/g, '<span class="text-green-400">expansion:</span>')
+                .replace(/(\$[a-zA-Z]+)/g, '<span class="text-blue-400">$1</span>');
+        } else {
+            preview.textContent = 'Enter both syntax pattern and test code to see preview';
+        }
+    }
+
+    // Form validation
+    form.addEventListener('submit', function(e) {
+        if (!syntaxInput.value.trim() || !codeInput.value.trim()) {
+            e.preventDefault();
+            alert('Please fill in both syntax pattern and test code fields');
+        }
+    });
+
+    // Copy functionality
+    preview.addEventListener('click', async function() {
+        try {
+            await navigator.clipboard.writeText(this.textContent);
+            this.classList.add('bg-indigo-700');
+            setTimeout(() => this.classList.remove('bg-indigo-700'), 200);
+        } catch (err) {
+            console.error('Failed to copy:', err);
+        }
+    });
+
+    // Mobile navigation
+    const nav = document.querySelector('.mobile-nav');
+    const toggleButton = document.createElement('button');
+    toggleButton.className = 'md:hidden text-white p-2';
+    toggleButton.innerHTML = '☰';
+    toggleButton.onclick = () => nav.classList.toggle('hidden');
+    document.querySelector('nav').prepend(toggleButton);
+
+    // Initialize
+    updatePreview();
+});
+</script>
+</body>
+</html>
+<script>
+// Complete implementation of all interactive features
+document.addEventListener('DOMContentLoaded', function() {
+    // Form handling and validation
+    const form = document.querySelector('form');
+    const textarea = document.querySelector('textarea[name="code"]');
+    
+    form.addEventListener('submit', function(e) {
+        if (!textarea.value.trim()) {
+            e.preventDefault();
+            alert('Please enter some code to transform');
+            return;
+        }
+    });
+
+    // Syntax highlighting implementation
+    function applySyntaxHighlighting(element) {
+        const code = element.innerHTML;
+        element.innerHTML = code
+            .replace(/@syntaxexion\b/g, '<span class="text-yellow-400">@syntaxexion</span>')
+            .replace(/pattern:/g, '<span class="text-pink-400">pattern:</span>')
+            .replace(/expansion:/g, '<span class="text-green-400">expansion:</span>')
+            .replace(/(\$[a-zA-Z]+)/g, '<span class="text-blue-400">$1</span>');
+    }
+
+    // Apply syntax highlighting to all code blocks
+    document.querySelectorAll('pre').forEach(pre => {
+        applySyntaxHighlighting(pre);
+        
+        // Add click-to-copy functionality
+        pre.addEventListener('click', async () => {
+            try {
+                await navigator.clipboard.writeText(pre.textContent);
+                const originalBg = pre.style.backgroundColor;
+                pre.style.backgroundColor = 'rgba(99, 102, 241, 0.4)';
+                setTimeout(() => {
+                    pre.style.backgroundColor = originalBg;
+                }, 200);
+            } catch (err) {
+                console.error('Failed to copy code:', err);
+            }
+        });
+    });
+
+    // Auto-resize textarea implementation
+    textarea.addEventListener('input', function() {
+        this.style.height = 'auto';
+        this.style.height = this.scrollHeight + 'px';
+    });
+
+    // Mobile navigation implementation
+    const navLinks = document.querySelector('nav div');
+    const toggleNav = () => {
+        if (window.innerWidth < 768) {
+            navLinks.classList.add('hidden');
+        } else {
+            navLinks.classList.remove('hidden');
+        }
+    };
+
+    window.addEventListener('resize', toggleNav);
+    toggleNav();
+
+    // Interactive code preview
+    textarea.addEventListener('input', function() {
+        const previewElement = document.querySelector('pre');
+        if (previewElement) {
+            previewElement.textContent = this.value;
+            applySyntaxHighlighting(previewElement);
+        }
+    });
+
+    // Community pattern voting system
+    document.querySelectorAll('.community-pattern').forEach(pattern => {
+        pattern.querySelector('.vote-button')?.addEventListener('click', function(e) {
+            e.preventDefault();
+            const votes = this.querySelector('.vote-count');
+            if (votes) {
+                votes.textContent = parseInt(votes.textContent) + 1;
+            }
+        });
+    });
+});
+</script>
+</body>
+</html>
+<link rel="stylesheet" href="https://cdn.tailwindcss.com">
+<style>
+.syntax-highlight {
+    transition: all 0.2s ease;
+}
+pre:hover {
+    cursor: pointer;
+    transform: scale(1.01);
+}
+textarea {
+    min-height: 120px;
+    transition: height 0.2s ease;
+}
+@media (max-width: 768px) {
+    .mobile-nav {
+        display: none;
+    }
+}
+</style>
+</head>
+<body class="bg-gradient-to-br from-indigo-900 to-purple-900 text-white min-h-screen">
+<header class="p-6 border-b border-indigo-700">
+<nav class="max-w-4xl mx-auto flex justify-between items-center">
+<h1 class="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-400">
+            Syntaxexion
+        </h1>
+<div class="space-x-4 mobile-nav">
+<a href="https://syntaxexion.net/learn" class="hover:text-cyan-400 transition">Learn</a>
+<a href="https://syntaxexion.net/playground" class="hover:text-cyan-400 transition">Playground</a>
+<a href="https://syntaxexion.net/community" class="hover:text-cyan-400 transition">Community</a>
+</div>
+</nav>
+</header>
+<main class="max-w-4xl mx-auto p-6">
+<section class="mb-12">
+<div class="bg-indigo-800/50 rounded-lg p-6">
+<h2 class="text-2xl font-bold mb-6">Transform Your Code</h2>
+<form method="GET" action="https://syntaxexion.net/transform" class="space-y-6">
+<div>
+<label for="syntax" class="block mb-2">Syntax Pattern</label>
+<textarea id="syntax" name="syntax" class="w-full bg-indigo-950 rounded p-4 text-cyan-300 font-mono resize-none" placeholder="@syntaxexion { pattern: '...' }"></textarea>
+</div>
+<div>
+<label for="code" class="block mb-2">Test Code</label>
+<textarea id="code" name="code" class="w-full bg-indigo-950 rounded p-4 text-cyan-300 font-mono resize-none" placeholder="Enter code to transform..."></textarea>
+</div>
+<button type="submit" class="bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-2 rounded transition">
+                    Transform
+                </button>
+</form>
+</div>
+</section>
+<section id="preview" class="bg-indigo-800/50 rounded-lg p-6">
+<h3 class="text-xl font-bold mb-4">Live Preview</h3>
+<pre class="font-mono text-sm text-cyan-300 bg-indigo-950 p-4 rounded"></pre>
+</section>
+</main>
+<footer class="mt-12 border-t border-indigo-700 p-6">
+<div class="max-w-4xl mx-auto text-center text-indigo-400">
+<p>© 2024 Syntaxexion - Expanding the boundaries of syntax</p>
+<div class="mt-4">
+<a href="https://syntaxexion.net/docs" class="hover:text-cyan-400 mx-2">Documentation</a>
+<a href="https://syntaxexion.net/blog" class="hover:text-cyan-400 mx-2">Blog</a>
+<a href="https://syntaxexion.net/contact" class="hover:text-cyan-400 mx-2">Contact</a>
+</div>
+</div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const syntaxInput = document.getElementById('syntax');
+    const codeInput = document.getElementById('code');
+    const preview = document.querySelector('#preview pre');
+    const form = document.querySelector('form');
+
+    // Auto-resize textareas
+    function autoResize(element) {
+        element.style.height = 'auto';
+        element.style.height = element.scrollHeight + 'px';
+    }
+
+    [syntaxInput, codeInput].forEach(textarea => {
+        textarea.addEventListener('input', () => {
+            autoResize(textarea);
+            updatePreview();
+        });
+    });
+
+    // Live preview functionality
+    function updatePreview() {
+        const syntax = syntaxInput.value.trim();
+        const code = codeInput.value.trim();
+        
+        if (syntax && code) {
+            preview.innerHTML = `${syntax}\n\n${code}`
+                .replace(/@syntaxexion\b/g, '<span class="text-yellow-400">@syntaxexion</span>')
+                .replace(/pattern:/g, '<span class="text-pink-400">pattern:</span>')
+                .replace(/expansion:/g, '<span class="text-green-400">expansion:</span>')
+                .replace(/(\$[a-zA-Z]+)/g, '<span class="text-blue-400">$1</span>');
+        } else {
+            preview.textContent = 'Enter both syntax pattern and test code to see preview';
+        }
+    }
+
+    // Form validation
+    form.addEventListener('submit', function(e) {
+        if (!syntaxInput.value.trim() || !codeInput.value.trim()) {
+            e.preventDefault();
+            alert('Please fill in both syntax pattern and test code fields');
+        }
+    });
+
+    // Copy functionality
+    preview.addEventListener('click', async function() {
+        try {
+            await navigator.clipboard.writeText(this.textContent);
+            this.classList.add('bg-indigo-700');
+            setTimeout(() => this.classList.remove('bg-indigo-700'), 200);
+        } catch (err) {
+            console.error('Failed to copy:', err);
+        }
+    });
+
+    // Mobile navigation
+    const nav = document.querySelector('.mobile-nav');
+    const toggleButton = document.createElement('button');
+    toggleButton.className = 'md:hidden text-white p-2';
+    toggleButton.innerHTML = '☰';
+    toggleButton.onclick = () => nav.classList.toggle('hidden');
+    document.querySelector('nav').prepend(toggleButton);
+
+    // Initialize
+    updatePreview();
+});
+</script>
+</body>
+</html>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+.syntax-highlight {
+    transition: all 0.2s ease;
+}
+pre:hover {
+    cursor: pointer;
+    transform: scale(1.01);
+}
+textarea {
+    min-height: 120px;
+    transition: height 0.2s ease;
+}
+@media (max-width: 768px) {
+    .mobile-nav {
+        display: none;
+    }
+}
+</style>
+</head>
+<body class="bg-gradient-to-br from-indigo-900 to-purple-900 text-white min-h-screen">
+<header class="p-6 border-b border-indigo-700">
+<nav class="max-w-4xl mx-auto flex justify-between items-center">
+<h1 class="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-400">
+            Syntaxexion
+        </h1>
+<div class="space-x-4 mobile-nav">
+<a href="https://syntaxexion.net/learn" class="hover:text-cyan-400 transition">Learn</a>
+<a href="https://syntaxexion.net/playground" class="hover:text-cyan-400 transition">Playground</a>
+<a href="https://syntaxexion.net/community" class="hover:text-cyan-400 transition">Community</a>
+</div>
+</nav>
+</header>
+<main class="max-w-4xl mx-auto p-6">
+<section class="mb-12">
+<div class="bg-indigo-800/50 rounded-lg p-6">
+<h2 class="text-2xl font-bold mb-6">Transform Your Code</h2>
+<form method="GET" action="https://syntaxexion.net/transform" class="space-y-6">
+<div>
+<label for="syntax" class="block mb-2">Syntax Pattern</label>
+<textarea id="syntax" name="syntax" class="w-full bg-indigo-950 rounded p-4 text-cyan-300 font-mono resize-none" placeholder="@syntaxexion { pattern: '...' }"></textarea>
+</div>
+<div>
+<label for="code" class="block mb-2">Test Code</label>
+<textarea id="code" name="code" class="w-full bg-indigo-950 rounded p-4 text-cyan-300 font-mono resize-none" placeholder="Enter code to transform..."></textarea>
+</div>
+<button type="submit" class="bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-2 rounded transition">
+                    Transform
+                </button>
+</form>
+</div>
+</section>
+<section id="preview" class="bg-indigo-800/50 rounded-lg p-6">
+<h3 class="text-xl font-bold mb-4">Live Preview</h3>
+<pre class="font-mono text-sm text-cyan-300 bg-indigo-950 p-4 rounded"></pre>
+</section>
+</main>
+<footer class="mt-12 border-t border-indigo-700 p-6">
+<div class="max-w-4xl mx-auto text-center text-indigo-400">
+<p>© 2024 Syntaxexion - Expanding the boundaries of syntax</p>
+<div class="mt-4">
+<a href="https://syntaxexion.net/docs" class="hover:text-cyan-400 mx-2">Documentation</a>
+<a href="https://syntaxexion.net/blog" class="hover:text-cyan-400 mx-2">Blog</a>
+<a href="https://syntaxexion.net/contact" class="hover:text-cyan-400 mx-2">Contact</a>
+</div>
+</div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const syntaxInput = document.getElementById('syntax');
+    const codeInput = document.getElementById('code');
+    const preview = document.querySelector('#preview pre');
+    const form = document.querySelector('form');
+
+    // Auto-resize textareas
+    function autoResize(element) {
+        element.style.height = 'auto';
+        element.style.height = element.scrollHeight + 'px';
+    }
+
+    [syntaxInput, codeInput].forEach(textarea => {
+        textarea.addEventListener('input', () => {
+            autoResize(textarea);
+            updatePreview();
+        });
+    });
+
+    // Live preview functionality
+    function updatePreview() {
+        const syntax = syntaxInput.value.trim();
+        const code = codeInput.value.trim();
+        
+        if (syntax && code) {
+            preview.innerHTML = `${syntax}\n\n${code}`
+                .replace(/@syntaxexion\b/g, '<span class="text-yellow-400">@syntaxexion</span>')
+                .replace(/pattern:/g, '<span class="text-pink-400">pattern:</span>')
+                .replace(/expansion:/g, '<span class="text-green-400">expansion:</span>')
+                .replace(/(\$[a-zA-Z]+)/g, '<span class="text-blue-400">$1</span>');
+        } else {
+            preview.textContent = 'Enter both syntax pattern and test code to see preview';
+        }
+    }
+
+    // Form validation
+    form.addEventListener('submit', function(e) {
+        if (!syntaxInput.value.trim() || !codeInput.value.trim()) {
+            e.preventDefault();
+            alert('Please fill in both syntax pattern and test code fields');
+        }
+    });
+
+    // Copy functionality
+    preview.addEventListener('click', async function() {
+        try {
+            await navigator.clipboard.writeText(this.textContent);
+            this.classList.add('bg-indigo-700');
+            setTimeout(() => this.classList.remove('bg-indigo-700'), 200);
+        } catch (err) {
+            console.error('Failed to copy:', err);
+        }
+    });
+
+    // Mobile navigation
+    const nav = document.querySelector('.mobile-nav');
+    const toggleButton = document.createElement('button');
+    toggleButton.className = 'md:hidden text-white p-2';
+    toggleButton.innerHTML = '☰';
+    toggleButton.onclick = () => nav.classList.toggle('hidden');
+    document.querySelector('nav').prepend(toggleButton);
+
+    // Initialize
+    updatePreview();
+});
+</script>
+</body>
+</html>
+<title>`) and complete the HTML document with full implementations. Here's the continuation:
+
+```html
+<meta name="description" content="Transform and extend programming language syntax with Syntaxexion">
+<link rel="stylesheet" href="https://cdn.tailwindcss.com">
+<style>
+.syntax-highlight {
+    transition: all 0.2s ease;
+}
+pre:hover {
+    cursor: pointer;
+    transform: scale(1.01);
+}
+textarea {
+    min-height: 120px;
+    transition: height 0.2s ease;
+}
+@media (max-width: 768px) {
+    .mobile-nav {
+        display: none;
+    }
+}
+</style>
+</head>
+<body class="bg-gradient-to-br from-indigo-900 to-purple-900 text-white min-h-screen">
+<header class="p-6 border-b border-indigo-700">
+<nav class="max-w-4xl mx-auto flex justify-between items-center">
+<h1 class="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-400">
+            Syntaxexion
+        </h1>
+<div class="space-x-4 mobile-nav">
+<a href="https://syntaxexion.net/learn" class="hover:text-cyan-400 transition">Learn</a>
+<a href="https://syntaxexion.net/playground" class="hover:text-cyan-400 transition">Playground</a>
+<a href="https://syntaxexion.net/community" class="hover:text-cyan-400 transition">Community</a>
+</div>
+</nav>
+</header>
+<main class="max-w-4xl mx-auto p-6">
+<section class="mb-12">
+<div class="bg-indigo-800/50 rounded-lg p-6">
+<h2 class="text-2xl font-bold mb-6">Transform Your Code</h2>
+<form method="GET" action="https://syntaxexion.net/transform" class="space-y-6">
+<div>
+<label for="syntax" class="block mb-2">Syntax Pattern</label>
+<textarea id="syntax" name="syntax" class="w-full bg-indigo-950 rounded p-4 text-cyan-300 font-mono resize-none" placeholder="@syntaxexion { pattern: '...' }"></textarea>
+</div>
+<div>
+<label for="code" class="block mb-2">Test Code</label>
+<textarea id="code" name="code" class="w-full bg-indigo-950 rounded p-4 text-cyan-300 font-mono resize-none" placeholder="Enter code to transform..."></textarea>
+</div>
+<button type="submit" class="bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-2 rounded transition">
+                    Transform
+                </button>
+</form>
+</div>
+</section>
+<section id="preview" class="bg-indigo-800/50 rounded-lg p-6">
+<h3 class="text-xl font-bold mb-4">Live Preview</h3>
+<pre class="font-mono text-sm text-cyan-300 bg-indigo-950 p-4 rounded"></pre>
+</section>
+</main>
+<footer class="mt-12 border-t border-indigo-700 p-6">
+<div class="max-w-4xl mx-auto text-center text-indigo-400">
+<p>© 2024 Syntaxexion - Expanding the boundaries of syntax</p>
+<div class="mt-4">
+<a href="https://syntaxexion.net/docs" class="hover:text-cyan-400 mx-2">Documentation</a>
+<a href="https://syntaxexion.net/blog" class="hover:text-cyan-400 mx-2">Blog</a>
+<a href="https://syntaxexion.net/contact" class="hover:text-cyan-400 mx-2">Contact</a>
+</div>
+</div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const syntaxInput = document.getElementById('syntax');
+    const codeInput = document.getElementById('code');
+    const preview = document.querySelector('#preview pre');
+    const form = document.querySelector('form');
+
+    // Auto-resize textareas
+    function autoResize(element) {
+        element.style.height = 'auto';
+        element.style.height = element.scrollHeight + 'px';
+    }
+
+    [syntaxInput, codeInput].forEach(textarea => {
+        textarea.addEventListener('input', () => {
+            autoResize(textarea);
+            updatePreview();
+        });
+    });
+
+    // Live preview functionality
+    function updatePreview() {
+        const syntax = syntaxInput.value.trim();
+        const code = codeInput.value.trim();
+        
+        if (syntax && code) {
+            preview.innerHTML = `${syntax}\n\n${code}`
+                .replace(/@syntaxexion\b/g, '<span class="text-yellow-400">@syntaxexion</span>')
+                .replace(/pattern:/g, '<span class="text-pink-400">pattern:</span>')
+                .replace(/expansion:/g, '<span class="text-green-400">expansion:</span>')
+                .replace(/(\$[a-zA-Z]+)/g, '<span class="text-blue-400">$1</span>');
+        } else {
+            preview.textContent = 'Enter both syntax pattern and test code to see preview';
+        }
+    }
+
+    // Form validation
+    form.addEventListener('submit', function(e) {
+        if (!syntaxInput.value.trim() || !codeInput.value.trim()) {
+            e.preventDefault();
+            alert('Please fill in both syntax pattern and test code fields');
+        }
+    });
+
+    // Copy functionality
+    preview.addEventListener('click', async function() {
+        try {
+            await navigator.clipboard.writeText(this.textContent);
+            this.classList.add('bg-indigo-700');
+            setTimeout(() => this.classList.remove('bg-indigo-700'), 200);
+        } catch (err) {
+            console.error('Failed to copy:', err);
+        }
+    });
+
+    // Mobile navigation
+    const nav = document.querySelector('.mobile-nav');
+    const toggleButton = document.createElement('button');
+    toggleButton.className = 'md:hidden text-white p-2';
+    toggleButton.innerHTML = '☰';
+    toggleButton.onclick = () => nav.classList.toggle('hidden');
+    document.querySelector('nav').prepend(toggleButton);
+
+    // Initialize
+    updatePreview();
+});
+</script>
+</body>
+</html>
